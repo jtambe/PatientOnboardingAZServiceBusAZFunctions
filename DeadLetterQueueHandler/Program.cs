@@ -21,12 +21,15 @@ await using var client = new ServiceBusClient(connectionString);
 
 
 ServiceBusReceiver dlq = client.CreateReceiver("patientonboarding", "PatientIntake", new ServiceBusReceiverOptions { SubQueue = SubQueue.DeadLetter });
-var msg = await dlq.ReceiveMessageAsync();
 
+while(true)
+{
+    var msg = await dlq.ReceiveMessageAsync();
+    if(msg is null ) break;
+    Console.WriteLine(msg.Body.ToString());
+    await dlq.CompleteMessageAsync(msg);
+}
 
-Console.WriteLine(msg.Body.ToString());
-
-await dlq.CompleteMessageAsync(msg);
 
 Console.ReadKey();
 
