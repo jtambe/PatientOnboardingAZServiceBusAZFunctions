@@ -13,6 +13,8 @@ This Code shows a basic demo of AZ functions and AZ Service Bus
 `patientonboarding` is a single topic that acts as Publisher in the system <br/>
 `patientonboarding` topic has 2 subscribers in this setup viz `PatientIntake` and `PatientWelcome` <br/>
 
+`DeadLetterQueueHandler` is handles Dead Letter Queue messages and marks them as completed<br/>
+
 
 Please note that these functions do not demo Dependency Injection as per recommended Microsoft way
 
