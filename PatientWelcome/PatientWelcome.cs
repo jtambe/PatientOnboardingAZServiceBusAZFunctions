@@ -9,13 +9,6 @@ namespace PatientWelcome
 {
     public static class PatientWelcome
     {
-        //private readonly ILogger<PatientWelcome> _logger;
-
-        //public PatientWelcome(ILogger<PatientWelcome> log)
-        //{
-        //    _logger = log;
-        //}
-
         [FunctionName("PatientWelcome")]
         public static void Run([ServiceBusTrigger("patientonboarding", "PatientWelcome", Connection = "PatientOnboardingConnString")]string msg, ILogger _logger)
         {

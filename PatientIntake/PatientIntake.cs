@@ -10,12 +10,6 @@ namespace PatientIntake
 {
     public static class PatientIntake
     {
-        //private readonly ILogger<PatientIntake> _logger;
-
-        //public PatientIntake(ILogger<PatientIntake> log)
-        //{
-        //    _logger = log;
-        //}
 
         [FunctionName("PatientIntake")]
         public  static void Run([ServiceBusTrigger("patientonboarding", "PatientIntake", Connection = "PatientOnboardingConnString")]string msg, ILogger _logger)
